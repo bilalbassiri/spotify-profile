@@ -1,6 +1,0 @@
-{
-  "projects": {
-    "default": "clone-spotify-clone",
-    "staging": "spotify-profile-app"
-  }
-}
