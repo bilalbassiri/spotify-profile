@@ -1,0 +1,53 @@
+.user-body {
+    background-color:$spotify-grey-color;
+    color: rgba(255, 255, 255, 0.97);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    height: calc(100vh - 70px);
+    &::-webkit-scrollbar {
+        width: 6px;
+      }
+    &::-webkit-scrollbar-track {
+        background: $spotify-grey-color;
+      }
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.302);
+
+      }
+    scrollbar-width: thin;
+}
+.main-title {
+    width: 100%;
+    text-align: left;
+    margin-left: 25px;
+    margin-top: 15px;
+    position: relative;
+    z-index: 0;
+    letter-spacing: .55px;
+    span {
+        font-weight: lighter;
+        font-size: 1rem;
+    }
+    &::first-letter {
+        text-transform: uppercase;
+    }
+    &::before {
+        content: '';
+        display: block;
+        width: 50px;
+        height: 2px;
+        background-color: $spotify-green-color;
+        border-radius: 20px;
+        position: absolute;
+        top: 50%;
+        transform: translate(-110%, -50%);
+    }
+}
+@media screen and (min-width: 800px) {
+    .user-body {
+        width: calc(100vw - 100px);
+        height: 100vh;
+        float: right;
+    }
+}

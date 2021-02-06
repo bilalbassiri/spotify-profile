@@ -1,0 +1,33 @@
+.login-container {
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto;
+    align-items: center;
+    justify-content: center;
+    .login-logo {
+        width: 230px;
+        object-fit: contain;
+    }
+    .login-btn {
+        text-align: center;
+        font-weight: 600;
+        color: $body-main-font-color;
+        text-decoration: none;
+        background-color: $spotify-green-color;
+        padding: .5rem;
+        border-radius: 20px;
+        width: 60%;
+        margin: auto;
+        transition: all 200ms ease-in-out;
+        &:hover {
+           background-color:  $spotify-green-color;
+        }
+    }
+}
+
+@keyframes e {
+    to {
+        opacity: 1;
+    }
+}

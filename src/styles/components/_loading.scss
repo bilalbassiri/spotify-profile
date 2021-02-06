@@ -1,0 +1,44 @@
+
+.loading {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-content: center;
+    & > div {
+        height: 35px;
+        display: flex;
+        align-items: flex-end;
+        gap: 3px;
+        & > div {
+            width: 5px;
+            height: 0px;
+            background: linear-gradient(0deg, $spotify-green-color 70%, transparent 100%);
+            animation: f  400ms linear infinite alternate;
+            @for $i from 1 through 5 {
+                &:nth-child(#{$i}) {
+                    animation-delay: $i * 100ms;
+                }
+            }
+            &:nth-child(2n+1) {
+                animation-duration: 250ms;
+                animation-name: h;
+            }
+        }
+        
+
+    }
+}
+
+@keyframes f {
+    100% {
+        height:  80%;
+    }
+}
+@keyframes h {
+    from {
+        height: 5%;
+    }
+    to {
+        height: 100%;
+    }
+}

@@ -1,0 +1,145 @@
+.profile {
+    text-align: center;
+    padding-bottom: 70px;
+    .top-profile {
+        width: 100%;
+        padding: 70px 0px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        gap: 20px;
+        margin-bottom: 50px;
+        .profile-avatar {
+            width: 175px;
+            height: 175px;
+            margin: 0;
+            transition-duration: 300ms;
+            background-color: $secondary-color;
+            font-size: 2rem;         
+        }
+        div {
+            .pro-name{
+                h1 {
+                    font-weight: bold;
+                    font-size: 3.2rem;
+                }
+            }
+            .foll {
+                opacity: .75;
+                font-size: .95rem;
+                transition-duration: 200ms;
+                font-weight: 300;
+                flex-direction: row;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                span {
+                    display: inline-block;
+                    padding: 3px;
+                    color:  $spotify-green-color;
+                    font-weight: bold;
+                    font-size: 1.3rem;
+                    margin-right: 5px;
+                    &:nth-child(2) {
+                        width: 25px;
+                    }
+                }
+            }
+        }
+
+        .logout-btn {
+            font-family: 'Roboto', sans-serif;
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            color:$body-main-font-color;
+            background-color: transparent;
+            padding: 5px 12px;
+            font-size: .6rem;
+            outline: none;
+            border: none;
+            border: 1px solid $body-main-font-color;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 200ms $show-more-btn-transition-function;
+            &:hover {
+                background-color: $body-main-font-color;
+                color: $spotify-grey-color;
+            }
+        }
+        
+    }
+
+    .avatar-icon {
+        font-size: 5rem;
+        opacity: .5;
+    }
+    .more-following {
+        font-family: 'Roboto', sans-serif;
+        color: rgb(133, 133, 133);
+        font-size: .8rem;
+        font-weight: bold;
+        margin-bottom: 35px;
+        .more-link {
+            color: $secondary-color;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    .following {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 20px;
+        padding-top: 30px;
+        justify-content: center;
+        .art-card {
+            cursor: pointer;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            -moz-column-gap: 15px;
+            -webkit-column-gap: 15px;
+            column-gap: 15px;
+            width: 100%;
+            transition: all 300ms ease;
+            &:hover {
+                background-color: #222222;
+
+            }
+            .fol-artist-avatar {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                box-shadow: 0px 0px 10px -4px #00000086;
+            }
+            .fol-artist-details {
+                text-align: left;
+                h1 {
+                    font-size: 1rem;
+                }
+                span {
+                    display: block;
+                    margin-top: 10px;
+                    font-family: 'Roboto', sans-serif;
+                    font-size: .8rem;
+                    color: #acacac;
+                }
+            }
+        }
+    
+    }
+}
+@media screen and (min-width: 800px) {
+    .profile {
+        .following {
+            .art-card {
+                width: 250px;
+            }
+        }
+    }
+
+}

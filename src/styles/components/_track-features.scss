@@ -1,0 +1,44 @@
+.audio-features-for-track {
+    height: 100%;
+    .container {
+        background: $track-features-transition-function;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px 10px;
+        position: relative;
+        z-index: 0;
+        .is-saved-icon {
+            position: absolute;
+            right: 30px;
+            top: 30px;
+            color: $spotify-green-color;
+            font-size: 1.5rem;
+        }
+        .track-poster {
+            width: 175px;
+            height: 175px;
+            border-radius: 50%;
+        }
+        .feautures  {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            > a {
+                margin-top: 7px;
+                color: $body-main-font-color;
+                opacity: .9;
+                transition: opacity 200ms ease-in-out;
+                &:hover {
+                    opacity: 1;
+                }
+                .title {
+                    font-size: 2.5rem;
+                    letter-spacing: .6px;  
+                    text-align: center;  
+                }
+            }
+        }
+    }
+}

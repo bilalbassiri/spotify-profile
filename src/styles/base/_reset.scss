@@ -1,0 +1,50 @@
+body {
+    font-family: 'Nunito', sans-serif;
+    cursor: context-menu;
+    overflow: hidden;
+    background-color: $spotify-grey-color;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    li {
+        &::first-letter {
+            text-transform: uppercase;
+        }
+        list-style-type: none;
+        padding: 2px 0px;
+        a {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+table {
+    font-family: 'Roboto', sans-serif;
+    font-size: .8rem;
+    color :  #969696;
+    border-collapse: collapse;
+    margin-top: 20px;
+    tr {
+                
+        td {
+            padding: 5px 15px;
+            font-weight: 500;
+        }
+        & > td:first-child {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+    }
+}

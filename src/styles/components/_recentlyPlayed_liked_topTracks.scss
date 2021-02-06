@@ -1,0 +1,168 @@
+$btn-color : #ffffffe5;
+
+
+.recently-played, .liked, .top-tracks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $body-main-font-color;
+    text-align: left;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    .show {
+        z-index: 9;
+        place-content: center;
+        cursor: pointer;
+        width: 36px;
+        height: 36px;
+        margin-top: 20px;
+        border-radius: 50%;
+        border: 1px solid transparent;
+        background-color: $btn-color;
+        color: $spotify-grey-color;
+        transition: all 200ms $show-more-btn-transition-function;
+        .unfold {
+            font-size: 18px;
+        }
+        &:hover {
+            border-color: $btn-color;
+            background-color: transparent;
+            color: $btn-color;
+        }
+    }
+    position: relative;
+    .shadow {
+        z-index: 7;
+        width: 100%;
+        height: 120px;
+        background: linear-gradient(0deg, $spotify-grey-color, transparent);
+        position: absolute;
+        bottom: 80px;
+    }
+    .track{
+        display: flex;
+        padding: 0px 15px;
+        border-radius: 3px;
+        width: 98%;
+        min-width: 300px;
+        min-height: 55px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        transition: all 300ms $track-transition-function;
+        &:hover:not(.bar) {
+            background-color: #ffffff20;
+        }
+        .disc-num {
+            width: 30px;
+        }
+        .track-title {
+            min-width: 120px;
+            width: 30%;
+            margin-left: 10px;
+        }
+        .album-title {
+            margin-left: 30px;
+            min-width: 100px;
+            width: 30%;
+        }
+        .track-poster {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            margin-left: 10px;
+        }
+        h4 {
+            color: $body-main-font-color;
+            font-weight: 600;
+        }
+        h4,p, .album-title {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        .duration, p, .album-title, .date, .disc-num  {
+            font-size: .83rem;
+            opacity: .7;
+        }
+
+        .date {
+            width: 150px;
+            margin-left: 10px;
+            align-items: center;
+        }
+        .duration {
+            margin-left: 10px;
+        }
+        .duration, .album-title, .date {
+            display: none;
+        }
+    }
+        .bar {
+        letter-spacing: .12rem;
+        height: auto;
+        margin-bottom: 10px;
+        .disc-num, .track-title,.album-title, .date {
+            font-size: .63rem;
+            opacity: .4;
+
+        }
+        .schedule {
+            font-size: 1.1rem;
+            opacity: .4;
+        }
+    }
+}
+.top-tracks{
+    min-height: 100vh;
+    background: linear-gradient(180deg,#7c6cced4 -35%, $spotify-grey-color 100%);
+    background-attachment: fixed;
+    padding-top: 0px;
+    padding-bottom: 100px;
+    & div:first-child {
+        width: 100%;
+    }
+    .track {
+        .duration {
+            margin-left: 15px;
+        }
+    }
+}
+
+@media screen and (min-width: 300px) {
+    .recently-played, .liked, .top-tracks {
+        .track {
+            
+            .duration {
+                display: block;
+            }
+        }
+    }
+}
+@media screen and (min-width: 400px) {
+    .recently-played, .liked, .top-tracks {
+        .track {
+            .date {
+                display: flex;
+            }
+        }
+    }
+    .top-tracks {
+        .track {
+            .album-title {
+                display: block;
+            }
+        }
+    }
+}
+@media screen and (min-width: 800px) {
+    .recently-played, .liked, .top-tracks {
+        .track {
+            width: 93%;
+            padding: 0px;
+            .album-title {
+                display: block;
+            }
+        }
+    }
+}

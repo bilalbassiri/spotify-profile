@@ -1,0 +1,977 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+body {
+  font-family: 'Nunito', sans-serif;
+  cursor: context-menu;
+  overflow: hidden;
+  background-color: #121212;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul li {
+  list-style-type: none;
+  padding: 2px 0px;
+}
+
+ul li::first-letter {
+  text-transform: uppercase;
+}
+
+ul li a:hover {
+  text-decoration: underline;
+}
+
+table {
+  font-family: 'Roboto', sans-serif;
+  font-size: .8rem;
+  color: #969696;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table tr td {
+  padding: 5px 15px;
+  font-weight: 500;
+}
+
+table tr > td:first-child {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.menu-container {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  background-color: #000000;
+  color: #acacac;
+  box-shadow: 0px 0px 30px -2px #000000;
+  z-index: 3;
+}
+
+.menu-container .brand-logo {
+  width: 40px;
+  object-fit: contain;
+  cursor: pointer;
+  display: none;
+}
+
+.menu-container > div {
+  display: block;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-top: 3px solid transparent;
+  transition: all 250ms cubic-bezier(0.43, 0.86, 0.87, 0.97);
+}
+
+.menu-container > div .avatar {
+  height: 35px;
+  width: 35px;
+  background-color: #7c6cce;
+  font-size: .9rem;
+}
+
+.menu-container > div .nav-icon {
+  font-size: 1.6rem;
+}
+
+.menu-container > div span {
+  font-family: 'Roboto', sans-serif;
+  margin-top: .1rem;
+  font-size: .7rem;
+  font-weight: 600;
+}
+
+.menu-container > div:hover {
+  background-color: rgba(17, 17, 17, 0.459);
+  color: #e9e9e9;
+}
+
+.menu-container .active {
+  border-color: #1db954;
+  background-color: rgba(14, 14, 14, 0.816);
+  color: #e9e9e9;
+}
+
+@media screen and (min-width: 800px) {
+  .menu-container {
+    box-shadow: none;
+    flex-direction: column;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 100vh;
+    justify-content: start;
+  }
+  .menu-container > div {
+    width: 100%;
+    flex: .16;
+    border-top-width: 0px;
+    border-left: 3px solid transparent;
+  }
+  .menu-container > div .avatar {
+    height: 35px;
+    width: 35px;
+  }
+  .menu-container .brand-logo {
+    margin-top: 20px;
+    margin-bottom: 60px;
+    display: block;
+  }
+}
+
+.loading {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-content: center;
+}
+
+.loading > div {
+  height: 35px;
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+}
+
+.loading > div > div {
+  width: 5px;
+  height: 0px;
+  background: linear-gradient(0deg, #1db954 70%, transparent 100%);
+  animation: f  400ms linear infinite alternate;
+}
+
+.loading > div > div:nth-child(1) {
+  animation-delay: 100ms;
+}
+
+.loading > div > div:nth-child(2) {
+  animation-delay: 200ms;
+}
+
+.loading > div > div:nth-child(3) {
+  animation-delay: 300ms;
+}
+
+.loading > div > div:nth-child(4) {
+  animation-delay: 400ms;
+}
+
+.loading > div > div:nth-child(5) {
+  animation-delay: 500ms;
+}
+
+.loading > div > div:nth-child(2n+1) {
+  animation-duration: 250ms;
+  animation-name: h;
+}
+
+@keyframes f {
+  100% {
+    height: 80%;
+  }
+}
+
+@keyframes h {
+  from {
+    height: 5%;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+.login-container {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container .login-logo {
+  width: 230px;
+  object-fit: contain;
+}
+
+.login-container .login-btn {
+  text-align: center;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #1db954;
+  padding: .5rem;
+  border-radius: 20px;
+  width: 60%;
+  margin: auto;
+  transition: all 200ms ease-in-out;
+}
+
+.login-container .login-btn:hover {
+  background-color: #1db954;
+}
+
+@keyframes e {
+  to {
+    opacity: 1;
+  }
+}
+
+.not-found {
+  display: grid;
+  place-content: center;
+  text-align: center;
+  height: 100%;
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+  opacity: .5;
+}
+
+.not-found .icon {
+  font-size: 2.8rem;
+}
+
+.album .container, .artist .container, .playlist .container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(0deg, #121212 60%, rgba(18, 18, 18, 0.7) 100%);
+}
+
+.album .container .poster, .album .container .pseudo-img, .artist .container .poster, .artist .container .pseudo-img, .playlist .container .poster, .playlist .container .pseudo-img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  margin-top: 50px;
+}
+
+.album .container .pseudo-img, .artist .container .pseudo-img, .playlist .container .pseudo-img {
+  background-color: #252525;
+}
+
+.album .container > a, .artist .container > a, .playlist .container > a {
+  margin-top: 7px;
+  color: #ffffff;
+  transition: opacity 200ms ease-in-out;
+}
+
+.album .container > a .name, .artist .container > a .name, .playlist .container > a .name {
+  font-size: 2.5rem;
+  letter-spacing: .6px;
+  text-align: center;
+}
+
+.album .container .followers, .artist .container .followers, .playlist .container .followers {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  background-color: #7c6cce;
+  padding: 6px;
+  border-radius: 5px;
+  font-size: .85rem;
+  position: relative;
+}
+
+.album .container .followers::before, .artist .container .followers::before, .playlist .container .followers::before {
+  z-index: 1;
+  display: block;
+  content: '';
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  transform: translate(-50%, -50%) rotate(45deg);
+  top: 0;
+  left: 50%;
+  background-color: #7c6cce;
+}
+
+.album .container .popular, .artist .container .popular, .playlist .container .popular {
+  width: 95%;
+  font-family: 'Roboto', sans-serif;
+}
+
+.album .container .popular h2, .artist .container .popular h2, .playlist .container .popular h2 {
+  color: rgba(255, 255, 255, 0.241);
+  margin-top: 70px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+}
+
+.album .container .popular .track, .artist .container .popular .track, .playlist .container .popular .track {
+  padding: 10px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.album .container .popular .track:hover .disc-num, .artist .container .popular .track:hover .disc-num, .playlist .container .popular .track:hover .disc-num {
+  background-color: #7c6cce;
+  opacity: 1;
+}
+
+.album .container .popular .track .disc-num, .artist .container .popular .track .disc-num, .playlist .container .popular .track .disc-num {
+  width: 21px;
+  height: 21px;
+  display: grid;
+  place-content: center;
+  margin-right: 10px;
+  border-radius: 50%;
+  transition: all 100ms linear;
+}
+
+.album .container .popular .track img, .artist .container .popular .track img, .playlist .container .popular .track img {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+  margin-left: 10px;
+  border-radius: 50%;
+}
+
+.album .container .popular .track h3, .artist .container .popular .track h3, .playlist .container .popular .track h3 {
+  width: 40%;
+  margin-right: 30px;
+  font-weight: 500;
+  font-size: 1rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.album .container .popular .track h3 .title:hover, .artist .container .popular .track h3 .title:hover, .playlist .container .popular .track h3 .title:hover {
+  text-decoration: underline;
+}
+
+.album .container .popular .track .duration, .album .container .popular .track .disc-num, .artist .container .popular .track .duration, .artist .container .popular .track .disc-num, .playlist .container .popular .track .duration, .playlist .container .popular .track .disc-num {
+  opacity: .8;
+  font-size: .9rem;
+}
+
+.album .container .popular .show, .artist .container .popular .show, .playlist .container .popular .show {
+  display: grid;
+  place-content: center;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 70px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.967);
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.967);
+  transition: all 200ms cubic-bezier(0.45, 0.5, 0.49, 0.85);
+}
+
+.album .container .popular .show .unfold, .artist .container .popular .show .unfold, .playlist .container .popular .show .unfold {
+  font-size: 18px;
+}
+
+.album .container .popular .show:hover, .artist .container .popular .show:hover, .playlist .container .popular .show:hover {
+  border-color: transparent;
+  background-color: rgba(255, 255, 255, 0.967);
+  color: #121212;
+}
+
+.album .container .des, .album .container .numbers span, .artist .container .des, .artist .container .numbers span, .playlist .container .des, .playlist .container .numbers span {
+  opacity: .85;
+  font-weight: 300;
+  font-size: .95rem;
+}
+
+.album .container .des, .artist .container .des, .playlist .container .des {
+  text-align: center;
+  padding: 0px 20px;
+}
+
+.album .container .numbers, .artist .container .numbers, .playlist .container .numbers {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  column-gap: 23px;
+}
+
+.album .container .numbers > div, .artist .container .numbers > div, .playlist .container .numbers > div {
+  display: flex;
+  align-items: center;
+}
+
+.album, .playlist {
+  height: 100%;
+}
+
+.playlists, .albums, .top-artists {
+  background: linear-gradient(0deg, rgba(255, 0, 170, 0.145) -50%, #121212 100%);
+  background-attachment: fixed;
+  min-height: 100%;
+}
+
+.playlists .items-container, .albums .items-container, .top-artists .items-container {
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.playlists .items-container .playlist-item, .playlists .items-container .album-item, .playlists .items-container .artist-item, .albums .items-container .playlist-item, .albums .items-container .album-item, .albums .items-container .artist-item, .top-artists .items-container .playlist-item, .top-artists .items-container .album-item, .top-artists .items-container .artist-item {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 17px;
+  border-radius: 8px;
+  transition: all 250ms cubic-bezier(0.17, 0.67, 0.45, 0.85);
+}
+
+.playlists .items-container .playlist-item:hover, .playlists .items-container .album-item:hover, .playlists .items-container .artist-item:hover, .albums .items-container .playlist-item:hover, .albums .items-container .album-item:hover, .albums .items-container .artist-item:hover, .top-artists .items-container .playlist-item:hover, .top-artists .items-container .album-item:hover, .top-artists .items-container .artist-item:hover {
+  background-color: rgba(196, 196, 196, 0.07);
+}
+
+.playlists .items-container .playlist-item:hover .poster, .playlists .items-container .playlist-item:hover img, .playlists .items-container .album-item:hover .poster, .playlists .items-container .album-item:hover img, .playlists .items-container .artist-item:hover .poster, .playlists .items-container .artist-item:hover img, .albums .items-container .playlist-item:hover .poster, .albums .items-container .playlist-item:hover img, .albums .items-container .album-item:hover .poster, .albums .items-container .album-item:hover img, .albums .items-container .artist-item:hover .poster, .albums .items-container .artist-item:hover img, .top-artists .items-container .playlist-item:hover .poster, .top-artists .items-container .playlist-item:hover img, .top-artists .items-container .album-item:hover .poster, .top-artists .items-container .album-item:hover img, .top-artists .items-container .artist-item:hover .poster, .top-artists .items-container .artist-item:hover img {
+  --i: 10px;
+}
+
+.playlists .items-container .playlist-item .poster, .playlists .items-container .playlist-item img, .playlists .items-container .album-item .poster, .playlists .items-container .album-item img, .playlists .items-container .artist-item .poster, .playlists .items-container .artist-item img, .albums .items-container .playlist-item .poster, .albums .items-container .playlist-item img, .albums .items-container .album-item .poster, .albums .items-container .album-item img, .albums .items-container .artist-item .poster, .albums .items-container .artist-item img, .top-artists .items-container .playlist-item .poster, .top-artists .items-container .playlist-item img, .top-artists .items-container .album-item .poster, .top-artists .items-container .album-item img, .top-artists .items-container .artist-item .poster, .top-artists .items-container .artist-item img {
+  --i: 0px;
+  height: 140px;
+  width: 140px;
+  border-radius: 50%;
+  box-shadow: 10px 0px 20px var(--i) rgba(0, 0, 0, 0.2);
+}
+
+.playlists .items-container .playlist-item .container, .playlists .items-container .album-item .container, .playlists .items-container .artist-item .container, .albums .items-container .playlist-item .container, .albums .items-container .album-item .container, .albums .items-container .artist-item .container, .top-artists .items-container .playlist-item .container, .top-artists .items-container .album-item .container, .top-artists .items-container .artist-item .container {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.playlists .items-container .playlist-item .container a, .playlists .items-container .album-item .container a, .playlists .items-container .artist-item .container a, .albums .items-container .playlist-item .container a, .albums .items-container .album-item .container a, .albums .items-container .artist-item .container a, .top-artists .items-container .playlist-item .container a, .top-artists .items-container .album-item .container a, .top-artists .items-container .artist-item .container a {
+  display: block;
+}
+
+.playlists .items-container .playlist-item .container .name, .playlists .items-container .album-item .container .name, .playlists .items-container .artist-item .container .name, .albums .items-container .playlist-item .container .name, .albums .items-container .album-item .container .name, .albums .items-container .artist-item .container .name, .top-artists .items-container .playlist-item .container .name, .top-artists .items-container .album-item .container .name, .top-artists .items-container .artist-item .container .name {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  transition: color 200ms cubic-bezier(0.17, 0.67, 0.63, 0.88);
+}
+
+.playlists .items-container .playlist-item .container .name::first-letter, .playlists .items-container .album-item .container .name::first-letter, .playlists .items-container .artist-item .container .name::first-letter, .albums .items-container .playlist-item .container .name::first-letter, .albums .items-container .album-item .container .name::first-letter, .albums .items-container .artist-item .container .name::first-letter, .top-artists .items-container .playlist-item .container .name::first-letter, .top-artists .items-container .album-item .container .name::first-letter, .top-artists .items-container .artist-item .container .name::first-letter {
+  text-transform: uppercase;
+}
+
+.playlists .items-container .playlist-item .container .owner, .playlists .items-container .playlist-item .container .tracks, .playlists .items-container .playlist-item .container .artists, .playlists .items-container .playlist-item .container .followers, .playlists .items-container .album-item .container .owner, .playlists .items-container .album-item .container .tracks, .playlists .items-container .album-item .container .artists, .playlists .items-container .album-item .container .followers, .playlists .items-container .artist-item .container .owner, .playlists .items-container .artist-item .container .tracks, .playlists .items-container .artist-item .container .artists, .playlists .items-container .artist-item .container .followers, .albums .items-container .playlist-item .container .owner, .albums .items-container .playlist-item .container .tracks, .albums .items-container .playlist-item .container .artists, .albums .items-container .playlist-item .container .followers, .albums .items-container .album-item .container .owner, .albums .items-container .album-item .container .tracks, .albums .items-container .album-item .container .artists, .albums .items-container .album-item .container .followers, .albums .items-container .artist-item .container .owner, .albums .items-container .artist-item .container .tracks, .albums .items-container .artist-item .container .artists, .albums .items-container .artist-item .container .followers, .top-artists .items-container .playlist-item .container .owner, .top-artists .items-container .playlist-item .container .tracks, .top-artists .items-container .playlist-item .container .artists, .top-artists .items-container .playlist-item .container .followers, .top-artists .items-container .album-item .container .owner, .top-artists .items-container .album-item .container .tracks, .top-artists .items-container .album-item .container .artists, .top-artists .items-container .album-item .container .followers, .top-artists .items-container .artist-item .container .owner, .top-artists .items-container .artist-item .container .tracks, .top-artists .items-container .artist-item .container .artists, .top-artists .items-container .artist-item .container .followers {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: .85rem;
+  font-weight: 500;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.playlists .items-container .playlist-item .container .artists, .playlists .items-container .album-item .container .artists, .playlists .items-container .artist-item .container .artists, .albums .items-container .playlist-item .container .artists, .albums .items-container .album-item .container .artists, .albums .items-container .artist-item .container .artists, .top-artists .items-container .playlist-item .container .artists, .top-artists .items-container .album-item .container .artists, .top-artists .items-container .artist-item .container .artists {
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 5px;
+}
+
+.playlists .items-container .playlist-item .container .artists span, .playlists .items-container .album-item .container .artists span, .playlists .items-container .artist-item .container .artists span, .albums .items-container .playlist-item .container .artists span, .albums .items-container .album-item .container .artists span, .albums .items-container .artist-item .container .artists span, .top-artists .items-container .playlist-item .container .artists span, .top-artists .items-container .album-item .container .artists span, .top-artists .items-container .artist-item .container .artists span {
+  color: rgba(255, 255, 255, 0.6);
+  position: relative;
+  margin-left: 10px;
+}
+
+.playlists .items-container .playlist-item .container .artists span::before, .playlists .items-container .album-item .container .artists span::before, .playlists .items-container .artist-item .container .artists span::before, .albums .items-container .playlist-item .container .artists span::before, .albums .items-container .album-item .container .artists span::before, .albums .items-container .artist-item .container .artists span::before, .top-artists .items-container .playlist-item .container .artists span::before, .top-artists .items-container .album-item .container .artists span::before, .top-artists .items-container .artist-item .container .artists span::before {
+  content: '';
+  display: inline-block;
+  height: 3px;
+  width: 3px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  position: absolute;
+  top: 45%;
+  left: -4px;
+}
+
+.playlists .items-container .playlist-item .container .name, .playlists .items-container .playlist-item .container .artists, .playlists .items-container .album-item .container .name, .playlists .items-container .album-item .container .artists, .playlists .items-container .artist-item .container .name, .playlists .items-container .artist-item .container .artists, .albums .items-container .playlist-item .container .name, .albums .items-container .playlist-item .container .artists, .albums .items-container .album-item .container .name, .albums .items-container .album-item .container .artists, .albums .items-container .artist-item .container .name, .albums .items-container .artist-item .container .artists, .top-artists .items-container .playlist-item .container .name, .top-artists .items-container .playlist-item .container .artists, .top-artists .items-container .album-item .container .name, .top-artists .items-container .album-item .container .artists, .top-artists .items-container .artist-item .container .name, .top-artists .items-container .artist-item .container .artists {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 50ch;
+}
+
+.playlists .artist-item, .albums .artist-item, .top-artists .artist-item {
+  background: none;
+}
+
+@media screen and (min-width: 800px) {
+  .playlists .items-container, .albums .items-container, .top-artists .items-container {
+    padding: 40px 0px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .playlists .items-container .playlist-item, .playlists .items-container .album-item, .playlists .items-container .artist-item, .albums .items-container .playlist-item, .albums .items-container .album-item, .albums .items-container .artist-item, .top-artists .items-container .playlist-item, .top-artists .items-container .album-item, .top-artists .items-container .artist-item {
+    width: 45%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .top-artists .items-container .artist-item {
+    width: 30%;
+  }
+}
+
+.profile {
+  text-align: center;
+  padding-bottom: 70px;
+}
+
+.profile .top-profile {
+  width: 100%;
+  padding: 70px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.profile .top-profile .profile-avatar {
+  width: 175px;
+  height: 175px;
+  margin: 0;
+  transition-duration: 300ms;
+  background-color: #7c6cce;
+  font-size: 2rem;
+}
+
+.profile .top-profile div .pro-name h1 {
+  font-weight: bold;
+  font-size: 3.2rem;
+}
+
+.profile .top-profile div .foll {
+  opacity: .75;
+  font-size: .95rem;
+  transition-duration: 200ms;
+  font-weight: 300;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile .top-profile div .foll span {
+  display: inline-block;
+  padding: 3px;
+  color: #1db954;
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-right: 5px;
+}
+
+.profile .top-profile div .foll span:nth-child(2) {
+  width: 25px;
+}
+
+.profile .top-profile .logout-btn {
+  font-family: 'Roboto', sans-serif;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  color: #ffffff;
+  background-color: transparent;
+  padding: 5px 12px;
+  font-size: .6rem;
+  outline: none;
+  border: none;
+  border: 1px solid #ffffff;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 200ms cubic-bezier(0.45, 0.5, 0.49, 0.85);
+}
+
+.profile .top-profile .logout-btn:hover {
+  background-color: #ffffff;
+  color: #121212;
+}
+
+.profile .avatar-icon {
+  font-size: 5rem;
+  opacity: .5;
+}
+
+.profile .more-following {
+  font-family: 'Roboto', sans-serif;
+  color: #858585;
+  font-size: .8rem;
+  font-weight: bold;
+  margin-bottom: 35px;
+}
+
+.profile .more-following .more-link {
+  color: #7c6cce;
+}
+
+.profile .more-following .more-link:hover {
+  text-decoration: underline;
+}
+
+.profile .following {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  padding-top: 30px;
+  justify-content: center;
+}
+
+.profile .following .art-card {
+  cursor: pointer;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  column-gap: 15px;
+  width: 100%;
+  transition: all 300ms ease;
+}
+
+.profile .following .art-card:hover {
+  background-color: #222222;
+}
+
+.profile .following .art-card .fol-artist-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px -4px #00000086;
+}
+
+.profile .following .art-card .fol-artist-details {
+  text-align: left;
+}
+
+.profile .following .art-card .fol-artist-details h1 {
+  font-size: 1rem;
+}
+
+.profile .following .art-card .fol-artist-details span {
+  display: block;
+  margin-top: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-size: .8rem;
+  color: #acacac;
+}
+
+@media screen and (min-width: 800px) {
+  .profile .following .art-card {
+    width: 250px;
+  }
+}
+
+.recently-played, .liked, .top-tracks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff;
+  text-align: left;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  position: relative;
+}
+
+.recently-played .show, .liked .show, .top-tracks .show {
+  z-index: 9;
+  place-content: center;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  margin-top: 20px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  background-color: #ffffffe5;
+  color: #121212;
+  transition: all 200ms cubic-bezier(0.45, 0.5, 0.49, 0.85);
+}
+
+.recently-played .show .unfold, .liked .show .unfold, .top-tracks .show .unfold {
+  font-size: 18px;
+}
+
+.recently-played .show:hover, .liked .show:hover, .top-tracks .show:hover {
+  border-color: #ffffffe5;
+  background-color: transparent;
+  color: #ffffffe5;
+}
+
+.recently-played .shadow, .liked .shadow, .top-tracks .shadow {
+  z-index: 7;
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(0deg, #121212, transparent);
+  position: absolute;
+  bottom: 80px;
+}
+
+.recently-played .track, .liked .track, .top-tracks .track {
+  display: flex;
+  padding: 0px 15px;
+  border-radius: 3px;
+  width: 98%;
+  min-width: 300px;
+  min-height: 55px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transition: all 300ms cubic-bezier(0.17, 0.67, 0.54, 0.92);
+}
+
+.recently-played .track:hover:not(.bar), .liked .track:hover:not(.bar), .top-tracks .track:hover:not(.bar) {
+  background-color: #ffffff20;
+}
+
+.recently-played .track .disc-num, .liked .track .disc-num, .top-tracks .track .disc-num {
+  width: 30px;
+}
+
+.recently-played .track .track-title, .liked .track .track-title, .top-tracks .track .track-title {
+  min-width: 120px;
+  width: 30%;
+  margin-left: 10px;
+}
+
+.recently-played .track .album-title, .liked .track .album-title, .top-tracks .track .album-title {
+  margin-left: 30px;
+  min-width: 100px;
+  width: 30%;
+}
+
+.recently-played .track .track-poster, .liked .track .track-poster, .top-tracks .track .track-poster {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-left: 10px;
+}
+
+.recently-played .track h4, .liked .track h4, .top-tracks .track h4 {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.recently-played .track h4, .recently-played .track p, .recently-played .track .album-title, .liked .track h4, .liked .track p, .liked .track .album-title, .top-tracks .track h4, .top-tracks .track p, .top-tracks .track .album-title {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.recently-played .track .duration, .recently-played .track p, .recently-played .track .album-title, .recently-played .track .date, .recently-played .track .disc-num, .liked .track .duration, .liked .track p, .liked .track .album-title, .liked .track .date, .liked .track .disc-num, .top-tracks .track .duration, .top-tracks .track p, .top-tracks .track .album-title, .top-tracks .track .date, .top-tracks .track .disc-num {
+  font-size: .83rem;
+  opacity: .7;
+}
+
+.recently-played .track .date, .liked .track .date, .top-tracks .track .date {
+  width: 150px;
+  margin-left: 10px;
+  align-items: center;
+}
+
+.recently-played .track .duration, .liked .track .duration, .top-tracks .track .duration {
+  margin-left: 10px;
+}
+
+.recently-played .track .duration, .recently-played .track .album-title, .recently-played .track .date, .liked .track .duration, .liked .track .album-title, .liked .track .date, .top-tracks .track .duration, .top-tracks .track .album-title, .top-tracks .track .date {
+  display: none;
+}
+
+.recently-played .bar, .liked .bar, .top-tracks .bar {
+  letter-spacing: .12rem;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.recently-played .bar .disc-num, .recently-played .bar .track-title, .recently-played .bar .album-title, .recently-played .bar .date, .liked .bar .disc-num, .liked .bar .track-title, .liked .bar .album-title, .liked .bar .date, .top-tracks .bar .disc-num, .top-tracks .bar .track-title, .top-tracks .bar .album-title, .top-tracks .bar .date {
+  font-size: .63rem;
+  opacity: .4;
+}
+
+.recently-played .bar .schedule, .liked .bar .schedule, .top-tracks .bar .schedule {
+  font-size: 1.1rem;
+  opacity: .4;
+}
+
+.top-tracks {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #7c6cced4 -35%, #121212 100%);
+  background-attachment: fixed;
+  padding-top: 0px;
+  padding-bottom: 100px;
+}
+
+.top-tracks div:first-child {
+  width: 100%;
+}
+
+.top-tracks .track .duration {
+  margin-left: 15px;
+}
+
+@media screen and (min-width: 300px) {
+  .recently-played .track .duration, .liked .track .duration, .top-tracks .track .duration {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  .recently-played .track .date, .liked .track .date, .top-tracks .track .date {
+    display: flex;
+  }
+  .top-tracks .track .album-title {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .recently-played .track, .liked .track, .top-tracks .track {
+    width: 93%;
+    padding: 0px;
+  }
+  .recently-played .track .album-title, .liked .track .album-title, .top-tracks .track .album-title {
+    display: block;
+  }
+}
+
+.audio-features-for-track {
+  height: 100%;
+}
+
+.audio-features-for-track .container {
+  background: linear-gradient(0deg, #121212 50%, rgba(18, 18, 18, 0.75) 100%);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 10px;
+  position: relative;
+  z-index: 0;
+}
+
+.audio-features-for-track .container .is-saved-icon {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  color: #1db954;
+  font-size: 1.5rem;
+}
+
+.audio-features-for-track .container .track-poster {
+  width: 175px;
+  height: 175px;
+  border-radius: 50%;
+}
+
+.audio-features-for-track .container .feautures {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.audio-features-for-track .container .feautures > a {
+  margin-top: 7px;
+  color: #ffffff;
+  opacity: .9;
+  transition: opacity 200ms ease-in-out;
+}
+
+.audio-features-for-track .container .feautures > a:hover {
+  opacity: 1;
+}
+
+.audio-features-for-track .container .feautures > a .title {
+  font-size: 2.5rem;
+  letter-spacing: .6px;
+  text-align: center;
+}
+
+.user-body {
+  background-color: #121212;
+  color: rgba(255, 255, 255, 0.97);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  height: calc(100vh - 70px);
+  scrollbar-width: thin;
+}
+
+.user-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.user-body::-webkit-scrollbar-track {
+  background: #121212;
+}
+
+.user-body::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.302);
+}
+
+.main-title {
+  width: 100%;
+  text-align: left;
+  margin-left: 25px;
+  margin-top: 15px;
+  position: relative;
+  z-index: 0;
+  letter-spacing: .55px;
+}
+
+.main-title span {
+  font-weight: lighter;
+  font-size: 1rem;
+}
+
+.main-title::first-letter {
+  text-transform: uppercase;
+}
+
+.main-title::before {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 2px;
+  background-color: #1db954;
+  border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-110%, -50%);
+}
+
+@media screen and (min-width: 800px) {
+  .user-body {
+    width: calc(100vw - 100px);
+    height: 100vh;
+    float: right;
+  }
+}
+/*# sourceMappingURL=App.css.map */

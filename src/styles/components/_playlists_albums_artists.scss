@@ -1,0 +1,115 @@
+.playlists, .albums, .top-artists {
+    background: $artistS-albumS-playlistS-background;
+    background-attachment: fixed;
+    min-height: 100%;
+    .items-container {
+        padding: 20px 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+            .playlist-item, .album-item, .artist-item {
+                cursor: pointer;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding: 17px;
+                border-radius: 8px;
+                transition: all 250ms $items-transition-function;
+                &:hover {
+                    background-color: rgba(196, 196, 196, 0.07);
+                    .poster, img {
+                        --i: 10px;
+                    }
+                }
+                .poster, img {
+                    --i: 0px;
+                    height:140px;
+                    width: 140px;
+                    border-radius: 50%;
+                    box-shadow: 10px 0px  20px var(--i) rgba(0, 0, 0, 0.2);
+                }
+                .container {
+                    margin-left: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    overflow: hidden;
+                    a {
+                        display: block;
+                    }
+                    .name {
+                        font-size: 1.5rem;
+                        margin-bottom: 10px;
+                        transition: color 200ms cubic-bezier(.17,.67,.63,.88);
+                        &::first-letter {
+                            text-transform: uppercase;
+                        }
+
+                    }
+                    .owner, .tracks, .artists, .followers {
+                        color: rgba(255, 255, 255, 0.6);
+                        font-size: .85rem;
+                        font-weight: 500;
+                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    }
+                    .artists {
+                        color: rgba(255, 255, 255, 0.9);
+                        margin-top: 5px;
+                        span {
+                                    color: rgba(255, 255, 255, 0.6);
+                                    position: relative;
+                                    margin-left: 10px;
+                                    &::before {
+                                        content: '';
+                                        display: inline-block;
+                                        height: 3px;
+                                        width: 3px;
+                                        background-color: rgba(255, 255, 255, 0.6);
+                                        border-radius: 50%;
+                                        position: absolute;
+                                        top: 45%;
+                                        left: -4px;
+                                    }
+                    }
+                    }
+
+                     .name, .artists {
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                            max-width: 50ch;
+                    }
+
+                }
+                }
+     }
+
+    .artist-item {
+        background: none;
+    }
+}
+
+
+@media screen and (min-width: 800px) {
+    .playlists, .albums, .top-artists {
+            .items-container {
+                padding:  40px 0px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                    .playlist-item, .album-item, .artist-item {
+                        width: 45%;
+                    }
+             }
+    }
+
+
+}
+@media screen and (min-width: 1024px){
+    .top-artists {
+        .items-container {
+            .artist-item {
+                width: 30%;
+            }
+        }
+    }
+}

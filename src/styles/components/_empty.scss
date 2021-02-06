@@ -1,0 +1,12 @@
+.not-found {
+    display: grid;
+    place-content: center;
+    text-align: center;
+    height: 100%;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    opacity: .5;
+    .icon {
+        font-size: 2.8rem;
+    }
+}

@@ -1,0 +1,18 @@
+// colors
+$spotify-green-color: #1db954;
+$spotify-grey-color: #121212;
+$body-main-font-color: #ffffff;
+$secondary-color: #7c6cce;
+$menu-font-color: #acacac;
+
+//transition timing functions
+$menu-section-transition-function: cubic-bezier(.43,.86,.87,.97);
+$show-more-btn-transition-function: cubic-bezier(.45,.5,.49,.85);
+$artist-popular-tracks-transition-function: linear;
+$items-transition-function: cubic-bezier(.17,.67,.45,.85);
+$track-transition-function: cubic-bezier(.17,.67,.54,.92);
+$track-features-transition-function: linear-gradient(0deg, #121212 50%, rgba(18, 18, 18, 0.75) 100%);
+
+//backgrounds
+$artist-album-playlist-background: linear-gradient(0deg,#121212  60%, rgba(18, 18, 18, 0.7) 100%);
+$artistS-albumS-playlistS-background: linear-gradient(0deg,rgba(255, 0, 170, 0.145) -50%,#121212 100%);
