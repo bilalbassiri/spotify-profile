@@ -7,7 +7,7 @@ let Playlists = ({ playlists }) => {
     let history = useHistory();
     const [start, setStart] = useState(false);
     useEffect(() => {
-        setInterval(() => {
+        setTimeout(() => {
             setStart(true)
         }, 1000);
     }, [])

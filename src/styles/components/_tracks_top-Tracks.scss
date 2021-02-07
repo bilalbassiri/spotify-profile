@@ -1,7 +1,7 @@
 $btn-color : #ffffffe5;
 
 
-.recently-played, .liked, .top-tracks {
+.profile-liked-and-played-tracks, .top-tracks {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -130,7 +130,7 @@ $btn-color : #ffffffe5;
 }
 
 @media screen and (min-width: 300px) {
-    .recently-played, .liked, .top-tracks {
+    .profile-liked-and-played-tracks, .top-tracks {
         .track {
             
             .duration {
@@ -140,7 +140,7 @@ $btn-color : #ffffffe5;
     }
 }
 @media screen and (min-width: 400px) {
-    .recently-played, .liked, .top-tracks {
+    .profile-liked-and-played-tracks, .top-tracks {
         .track {
             .date {
                 display: flex;
@@ -156,7 +156,7 @@ $btn-color : #ffffffe5;
     }
 }
 @media screen and (min-width: 800px) {
-    .recently-played, .liked, .top-tracks {
+    .profile-liked-and-played-tracks, .top-tracks {
         .track {
             width: 93%;
             padding: 0px;

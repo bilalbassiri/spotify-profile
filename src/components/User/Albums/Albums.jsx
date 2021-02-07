@@ -12,7 +12,7 @@ let Albums = ({ albums: { items } }) => {
         }, 1000);
     }, [])
     return (
-        items && start?
+        items && start ?
             (
                 items.length ?
                     <div className='albums'>

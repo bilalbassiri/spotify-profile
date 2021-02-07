@@ -3,6 +3,7 @@
 
 @import 'base/variables';
 @import 'base/reset';
+
 @import 'components/menu';
 @import 'components/loading';
 @import 'components/login';
@@ -10,6 +11,7 @@
 @import 'components/playlist_album_artist';
 @import 'components/playlists_albums_artists';
 @import 'components/profile';
-@import 'components/recentlyPlayed_liked_topTracks';
+@import 'components/tracks_top-tracks';
 @import 'components/track-features';
 @import 'components/user';
+@import 'components/chart';

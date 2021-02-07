@@ -1,18 +1,26 @@
 import React, { useState } from 'react';
+import { useHistory } from "react-router-dom";
+import HistoryIcon from '@material-ui/icons/History';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ScheduleIcon from '@material-ui/icons/Schedule';
 import UnfoldLessIcon from '@material-ui/icons/UnfoldLess';
 import UnfoldMoreIcon from '@material-ui/icons/UnfoldMore';
-import getPassedTime, { getDur, getDisplay } from '../../../utils/heplers';
 import NotFound from '../../Empty';
-import { useHistory } from "react-router-dom";
+import getPassedTime, { getDur, getDisplay } from '../../../utils/heplers';
 
-let Liked = ({ liked: { items } }) => {
+
+
+let Tracks = ({ comp, tracks }) => {
+
     let history = useHistory();
+    const {items} = tracks;
+    let played = comp === 'played';
+    const sub = played ? 'recently-played' : 'liked-songs';
+    const IconStyle = { color: '#1DB954', marginRight: '5px', fontSize: '1rem' };
     const [flex, setFlex] = useState('none');
     return (
-        <div className='liked'>
-            <div className='track bar' style={{ display: items?.length ? 'flex' : 'none' }}>
+        <div className='profile-liked-and-played-tracks'>
+            <div className='track bar' style={{display: items.length? 'flex' : 'none'}}>
                 <div className='disc-num'>
                     #
                 </div>
@@ -24,7 +32,9 @@ let Liked = ({ liked: { items } }) => {
                     ALBUM
                 </div>
                 <div className='date'>
-                    LIKED
+                    {
+                        played? 'PLAYED' : 'LIKED'
+                    }
                 </div>
                 <div className='duration'>
                     <ScheduleIcon className='schedule' />
@@ -32,7 +42,7 @@ let Liked = ({ liked: { items } }) => {
             </div>
             {items?.length ? items.map((item, i) =>
             (
-                <div key={i} className='track' style={getDisplay(i, flex)} onClick={() => history.push('/profile/liked-songs/' + item.track.id)}>
+                <div key={i} className='track' style={getDisplay(i, flex)} onClick={() => history.push('/profile/'+ sub +'/' + item.track.id)}>
                     <div className='disc-num'>
                         {i + 1}
                     </div>
@@ -44,19 +54,21 @@ let Liked = ({ liked: { items } }) => {
                     <div className='album-title'>
                         {item.track.album.name}
                     </div>
-
                     <div className='date'>
-                        <FavoriteIcon
-                            style={{ color: '#1DB954', marginRight: '5px', fontSize: '1rem' }} />
-                        {getPassedTime(item.added_at)}
+                        {
+                            played ?
+                            <HistoryIcon style={IconStyle} />
+                            :
+                            <FavoriteIcon style={IconStyle}/>
+                        }
+                        {getPassedTime(played? item.played_at : item.added_at)}
                     </div>
-
                     <div className='duration'>
                         {Math.floor((item.track.duration_ms) / 60000) + ':' + getDur((item.track.duration_ms) % 60000)}
                     </div>
                 </div>
             )
-            ) : <NotFound title={'liked'} />}
+            ) : <NotFound title={played? 'recently' : 'liked'} />}
             {
                 flex === 'none' ? <div className='shadow' onClick={(e) => {
                     setFlex(flex === 'none' ? 'flex' : 'none')
@@ -71,4 +83,4 @@ let Liked = ({ liked: { items } }) => {
     )
 }
 
-export default Liked;
+export default Tracks;

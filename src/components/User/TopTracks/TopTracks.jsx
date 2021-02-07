@@ -23,14 +23,14 @@ function TopTracks({ tracks }) {
                     <div className='track bar'>
                         <div className='disc-num'>
                             #
-            </div>
+                        </div>
                         <div className='track-poster'></div>
                         <div className='track-title'>
                             TITLE
-            </div>
+                        </div>
                         <div className='album-title'>
                             ALBUM
-            </div>
+                        </div>
                         <div className='duration'>
                             <ScheduleIcon className='schedule' />
                         </div>

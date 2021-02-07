@@ -50,6 +50,19 @@
                     color: #e9e9e9
                 }
     }
+    .github-repo {
+        position: absolute;
+        bottom: 20px;
+        display: none;
+        color: rgb(126, 126, 126);
+        transition: color 200ms cubic-bezier(.4,.81,.74,.88);
+        &> * {
+            font-size: 1.3rem;
+        }
+        &:hover {
+            color: rgb(206, 206, 206);
+        }
+    }
     .active {
         border-color: $spotify-green-color;
         background-color: rgba(14, 14, 14, 0.816);
@@ -78,7 +91,9 @@
                     width: 35px;
                 }
         }
-        
+        .github-repo {
+            display: inline;
+        }
         .brand-logo {
             margin-top: 20px;
             margin-bottom: 60px;

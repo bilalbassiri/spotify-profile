@@ -1,7 +1,6 @@
 import React from 'react'
 import Avatar from '@material-ui/core/Avatar';
-import Recently from './Recently';
-import Liked from './Liked';
+import Tracks from './Tracks';
 import { useHistory } from "react-router-dom";
 import { getFoll } from '../../../utils/heplers'
 import Empty from '../../Empty';
@@ -43,9 +42,9 @@ let Profile = ({ user: { display_name: name, images, followers, external_urls },
                 }
             </div>
             <h3 key='2' className='main-title'>Recently Played</h3>
-            <Recently recently={recently} />
+            <Tracks tracks={recently} comp='played'/>
             <h3 key='3' className='main-title'>Liked Songs</h3>
-            <Liked liked={liked} />
+            <Tracks tracks={liked} comp='liked'/>
         </div>
     )
 }

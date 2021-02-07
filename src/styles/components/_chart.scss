@@ -1,0 +1,9 @@
+.horizontalBar-chart-container {
+    position: relative;
+    width: 98%;
+}
+@media screen and (min-width: 800px){
+    .horizontalBar-chart-container {
+        width: 80%;
+    }
+}

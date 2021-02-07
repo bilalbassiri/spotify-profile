@@ -3,8 +3,9 @@ import AlbumIcon from '@material-ui/icons/Album';
 import QueueMusicIcon from '@material-ui/icons/QueueMusic';
 import GroupIcon from '@material-ui/icons/Group';
 import AudiotrackIcon from '@material-ui/icons/Audiotrack';
+import GitHubIcon from '@material-ui/icons/GitHub';
 import Avatar from '@material-ui/core/Avatar';
-import bodyLogo from '../img/Spotify_icon.png';
+import SpotifyIcon from '../img/Spotify_Icon_RGB_Green.png';
 import { useHistory } from "react-router-dom";
 
 
@@ -16,19 +17,19 @@ let Menu = ({ avatar, name }) => {
         let getActivePage = (_path) => {
             _path = _path.split('/')[1];
             switch (_path) {
-                case undefined || 'profile':
-                    setActive(undefined);
-                    break;
                 case 'playlists':
-                    setActive('p');
+                    setActive('playlists');
+                    break;
+                case 'albums':
+                    setActive('albums');
                     break;
                 case 'top-artists':
-                    setActive('ta');
+                    setActive('top-artists');
                     break;
                 case 'top-tracks':
-                    setActive('tt');
+                    setActive('top-tracks');
                     break;
-                default: setActive(_path[0])
+                default: setActive(undefined)
             }
         }
         window.addEventListener('popstate', () => {
@@ -44,7 +45,7 @@ let Menu = ({ avatar, name }) => {
     return (
         <div className="menu-container">
             <a href='https://open.spotify.com/' target='_blank' rel="noreferrer">
-                <img src={bodyLogo} alt="Spotify Brand Logo" className='brand-logo' />
+                <img src={SpotifyIcon} alt="Spotify Brand Logo" className='brand-logo' />
             </a>
             <div onClick={() => {
                 setActive(undefined)
@@ -57,50 +58,53 @@ let Menu = ({ avatar, name }) => {
             </div>
 
             <div onClick={() => {
-                setActive('p')
+                setActive('playlists')
                 history.push('/playlists')
                 document.title = 'Spotify Profile - Playlists';
             }}
-                className={isActive === 'p' ? 'active' : ''}
+                className={isActive === 'playlists' ? 'active' : ''}
             >
                 <QueueMusicIcon className='nav-icon' />
                 <span>Playlists</span>
             </div>
 
             <div onClick={() => {
-                setActive('a')
+                setActive('albums')
                 history.push('/albums')
                 document.title = 'Spotify Profile - Albums';
 
             }}
-                className={isActive === 'a' ? 'active' : ''}
+                className={isActive === 'albums' ? 'active' : ''}
             >
                 <AlbumIcon className='nav-icon' />
                 <span>Albums</span>
             </div>
 
             <div onClick={() => {
-                setActive('ta')
+                setActive('top-artists')
                 history.push('/top-artists')
                 document.title = 'Spotify Profile - Top Artists';
 
             }}
-                className={isActive === 'ta' ? 'active' : ''}
+                className={isActive === 'top-artists' ? 'active' : ''}
             >
                 <GroupIcon className='nav-icon' />
                 <span>Top Artists</span>
             </div>
 
             <div onClick={() => {
-                setActive('tt');
+                setActive('top-tracks');
                 history.push('/top-tracks')
                 document.title = 'Spotify Profile - Top Tracks';
             }}
-                className={isActive === 'tt' ? 'active' : ''}
+                className={isActive === 'top-tracks' ? 'active' : ''}
             >
                 <AudiotrackIcon className='nav-icon' />
                 <span>Top Tracks</span>
             </div>
+            <a className='github-repo' href='https://github.com/bilalbassiri/spotify-profile' rel="noreferrer" target='_blank'>
+                <GitHubIcon />
+            </a>
 
 
         </div>

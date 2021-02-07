@@ -5,15 +5,15 @@
     display: grid;
     place-content: center;
     & > div {
-        height: 35px;
+        height: 30px;
         display: flex;
         align-items: flex-end;
         gap: 3px;
         & > div {
-            width: 5px;
+            width: 3px;
             height: 0px;
-            background: linear-gradient(0deg, $spotify-green-color 70%, transparent 100%);
             animation: f  400ms linear infinite alternate;
+            background-color: $spotify-green-color;
             @for $i from 1 through 5 {
                 &:nth-child(#{$i}) {
                     animation-delay: $i * 100ms;

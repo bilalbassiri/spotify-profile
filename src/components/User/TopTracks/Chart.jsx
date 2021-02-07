@@ -80,7 +80,7 @@ let Chart = ({ features }) => {
 
     return (
 
-        <div style={{ position: 'relative', width: '100%'}}>
+        <div className='horizontalBar-chart-container'>
             <HorizontalBar
                 data={data}
                 options={options}
