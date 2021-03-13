@@ -35,13 +35,13 @@
     &::before {
         content: '';
         display: block;
-        width: 50px;
-        height: 2px;
+        width: 8px;
+        height: 8px;
         background-color: $spotify-green-color;
         border-radius: 20px;
         position: absolute;
         top: 50%;
-        transform: translate(-110%, -50%);
+        transform: translate(-200%, -50%);
     }
 }
 @media screen and (min-width: 800px) {
