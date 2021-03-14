@@ -57,13 +57,5 @@ let getFoll = (n) => {
             : n
 }
 
-let loadingOver = () => {
-    let start = false;
-    setInterval(()=> {
-        start = true
-    }, 2000)
-    return start
-}
-
 export default getPassedTime;
-export { getDur, getDisplay, getFormatedFollowers, getPlaylistFormattedDur, getFoll, loadingOver }
+export { getDur, getDisplay, getFormatedFollowers, getPlaylistFormattedDur, getFoll}
